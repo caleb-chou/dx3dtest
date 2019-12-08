@@ -1,29 +1,52 @@
-#include <Windows.h>
-#include <string>
+/*
+#include "bsremover.h"
+#include <sstream>
 
 LRESULT CALLBACK WndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	switch (msg) {
-	case WM_CLOSE: 
-		PostQuitMessage(69); 
-		break;
-	case WM_KEYDOWN:
-		switch (wParam) {
-		case 'W': 
-			SetWindowText(hWnd, "W");
-			break;
-		case 'A':
-			SetWindowText(hWnd, "A");
-			break;
-		case 'S':
-			SetWindowText(hWnd, "S");
-			break;
-		case 'D':
-			SetWindowText(hWnd, "D");
+	case WM_CLOSE:
+		{
+			PostQuitMessage(69);
 			break;
 		}
-		break;
+	case WM_KEYDOWN:
+		switch (wParam) {
+			{
+			case 'W':
+				SetWindowText(hWnd, "W");
+				break;
+			case 'A':
+				SetWindowText(hWnd, "A");
+				break;
+			case 'S':
+				SetWindowText(hWnd, "S");
+				break;
+			case 'D':
+				SetWindowText(hWnd, "D");
+				break;
+			}
+			break;
+		}
 	case WM_KEYUP:
+		{
 		break;
+		}
+	case WM_CHAR:
+		{
+			break;
+		}
+	case WM_LBUTTONDOWN:
+		{
+			const POINTS pt = MAKEPOINTS(lParam);
+			std::ostringstream oss;
+			oss << "(" << pt.x << "," << pt.y << ")";
+			SetWindowText(hWnd, oss.str().c_str());
+			break;
+		}
+	case WM_RBUTTONDOWN:
+		{
+			break;
+		}
 	}
 	return DefWindowProc(hWnd, msg, wParam, lParam);
 }
@@ -75,3 +98,4 @@ int CALLBACK WinMain(
 	else
 		return msg.wParam;
 }
+*/
