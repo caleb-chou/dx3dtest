@@ -1,9 +1,28 @@
 #include <Windows.h>
+#include <string>
 
 LRESULT CALLBACK WndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	switch (msg) {
 	case WM_CLOSE: 
 		PostQuitMessage(69); 
+		break;
+	case WM_KEYDOWN:
+		switch (wParam) {
+		case 'W': 
+			SetWindowText(hWnd, "W");
+			break;
+		case 'A':
+			SetWindowText(hWnd, "A");
+			break;
+		case 'S':
+			SetWindowText(hWnd, "S");
+			break;
+		case 'D':
+			SetWindowText(hWnd, "D");
+			break;
+		}
+		break;
+	case WM_KEYUP:
 		break;
 	}
 	return DefWindowProc(hWnd, msg, wParam, lParam);
